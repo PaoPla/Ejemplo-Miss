@@ -9,14 +9,22 @@ Original file is located at
 
 import streamlit as st
 import pandas as pd
-
+import numpy as np
 
 st.title('Police Incident Reports form 1028 to 2020 in San Francisco')
 
 df = pd.read_csv('https://drive.google.com/file/d/11oLcKiW8SgCOp3tGiQCYuRG7pLL_J-Zf/view?usp=drive_link')
 
 st.markdown('The data shown below belongs to incident reports in the city of San Francisco, from the year 2018 to 2020, with details from each case such as date, day of the week, police district, neighborhood in which it happened, type of incident in category and subcategory, exact location and resolution')
+# Coordenadas geográficas de San Francisco
+latitude = 37.7749
+longitude = -122.4194
 
+# Crear un DataFrame con las coordenadas de San Francisco
+mapa = pd.DataFrame(
+    np.array([[latitude, longitude]]),
+    columns=['lat', 'lon']
+)
 mapa=pd.DataFrame()
 mapa=mapa.dropna()
 st.map(mapa.astype(int))
