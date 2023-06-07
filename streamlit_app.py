@@ -20,6 +20,5 @@ mapa['Incident Category']= df['Incident Subcategory']
 mapa['Resolution'] = df['Resolution']
 mapa['lat'] = df['Latitude']
 mapa['lon'] = df['Longitude']
-mapa = pd.DataFrame(df['Latitude'],df['Longitude'])
 mapa = mapa.dropna()
-st.map(mapa.astype(int))
+st.map(mapa.astype({'lat': 'float32', 'lon': 'float32'}))
