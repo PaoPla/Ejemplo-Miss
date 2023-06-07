@@ -32,3 +32,4 @@ mapa['Resolution'] = df['Resolution']
 mapa['lat'] = df['Latitude']
 mapa['lon'] = df['Longitude']
 mapa = mapa.dropna()
+st.map(mapa.astype(int))
